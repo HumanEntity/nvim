@@ -87,7 +87,7 @@ cmp.setup({
 		},
 		completion = {
 			border = border("CmpBorder"),
-			winhighlight = "Normal:CmpPmenu,Search:PmenuSel", -- CursorLine:CmpSel,
+			winhighlight = "Normal:CmpPmenu,Search:PmenuSel,CursorLine:PmenuSel",
 			scrollbar = false,
 		},
 	},
