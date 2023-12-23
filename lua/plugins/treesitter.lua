@@ -3,7 +3,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "rust", "c", "markdown", "org" },
+				ensure_installed = { "rust", "c", "vim", "vimdoc", "markdown", "org" },
 				highlight = {
 					enable = true,
 					-- additional_vim_regex_highlighting = { "org" },
