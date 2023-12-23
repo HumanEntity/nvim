@@ -67,7 +67,7 @@ cmp.setup({
 	},
 	mapping = {
 		["<S-Tab>"] = cmp.mapping.select_next_item(cmp_select),
-		["<Tab>"] = cmp.mapping.confirm({ select = true }),
+		["<Tab>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 		["<C-Space>"] = cmp.mapping.complete(),
 	},
 	sources = cmp.config.sources({
@@ -92,7 +92,7 @@ cmp.setup({
 		},
 	},
 	completion = {
-		--     border = border "CmpBorder",
+		border = border("CmpBorder"),
 		completeopt = "menu,menuone,noinsert",
 	},
 })
