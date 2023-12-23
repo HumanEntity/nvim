@@ -5,7 +5,9 @@ return {
 			"xiyaowong/transparent.nvim",
 		},
 		config = function()
-			vim.cmd("colorscheme sonokai")
+			vim.cmd([[
+			colorscheme sonokai
+			TransparentEnable]])
 		end,
 		priority = 1000,
 	},
@@ -14,6 +16,7 @@ return {
 		config = function()
 			require("transparent").setup({
 				extra_groups = {
+					"Normal",
 					"NormalFloat",
 					"NeoTreeNormal",
 					"NeoTreeNormalNC",
