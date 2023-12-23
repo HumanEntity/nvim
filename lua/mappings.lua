@@ -27,6 +27,7 @@ map("n", "<leader>hr", ":source $HOME/.config/nvim/init.lua<CR>", { desc = "Hot 
 map("n", "<leader>hnw", ":Neorg workspace ", { desc = "Neorg workspace", silent = false })
 map("n", "<leader>hnj", ":Neorg journal ", { desc = "Neorg journal", silent = false })
 map("n", "<leader>hnn", ":Neorg workspace notes<CR>", { desc = "Neorg notes workspace" })
+map("n", "<leader>hs", require("utils").scratch, { desc = "Open scratch buffer" })
 
 -- Splitting
 map("n", "<leader>ss", ":vsplit<CR>")
