@@ -11,7 +11,6 @@ return {
 		},
 		config = function()
 			require("telescope").setup({
-
 				extensions = {
 					-- file_browser = {
 					-- 	-- theme = "ivy",
