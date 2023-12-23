@@ -49,7 +49,7 @@ lsp.on_attach(function(client, bufnr)
 	local utils = require("utils")
 	local map = function(mode, lhs, rhs, opts)
 		local desc = "LSP: " .. opts.desc
-		utils.map.set(mode, lhs, rhs, opts, { buffer = bufnr, remap = false, desc = desc })
+		utils.map(mode, lhs, rhs, opts, { buffer = bufnr, remap = false, desc = desc })
 	end
 
 	map("n", "gd", vim.lsp.buf.definition, { desc = "Goto definition" })

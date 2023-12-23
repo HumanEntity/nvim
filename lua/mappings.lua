@@ -1,5 +1,5 @@
 local map = function(mode, lhs, rhs, opts)
-	require("utils").map.set(mode, lhs, rhs, opts, { silent = true })
+	require("utils").map(mode, lhs, rhs, opts, { silent = true })
 end
 
 map("n", "<ESC>", function()

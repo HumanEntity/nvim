@@ -2,7 +2,7 @@ local harpoon = require("harpoon")
 
 harpoon:setup()
 
-local map = require("utils").map.set
+local map = require("utils").map
 
 map("n", "<C-Q>", function()
 	harpoon:list():append()
