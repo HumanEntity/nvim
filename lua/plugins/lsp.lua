@@ -111,7 +111,7 @@ return {
 			{
 				-- Optional
 				"williamboman/mason.nvim",
-				build = ":MasonUpdate",
+				-- build = ":MasonUpdate",
 				dependencies = { { "williamboman/mason-lspconfig.nvim" } },
 			},
 
