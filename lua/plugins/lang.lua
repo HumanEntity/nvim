@@ -18,10 +18,6 @@ return {
 	},
 	{ "ron-rs/ron.vim", lazy = false },
 	{ "DingDean/wgsl.vim", lazy = false },
-	{
-		"rust-lang/rust.vim",
-		ft = "rust",
-	},
 	-- Markdown
 	{
 		"iamcco/markdown-preview.nvim",

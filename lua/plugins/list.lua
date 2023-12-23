@@ -1,8 +1,8 @@
 return {
-	{
-		"lervag/vimtex",
-		lazy = false,
-	},
+	-- {
+	-- 	"lervag/vimtex",
+	-- 	lazy = false,
+	-- },
 	-- {
 	-- 	"tpope/vim-dadbod",
 	-- 	dependencies = {
@@ -47,22 +47,6 @@ return {
 		ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
 	},
 	-- Rust
-	{
-		"simrat39/rust-tools.nvim",
-		ft = "rust",
-		config = function()
-			require("plugins.config.rust-tools")
-		end,
-	},
-	{
-		"saecki/crates.nvim",
-		ft = { "rust", "toml" },
-		config = function(_, opts)
-			local crates = require("crates")
-			crates.setup(opts)
-			crates.show()
-		end,
-	},
 	-- Go
 	{
 		"olexsmir/gopher.nvim",
