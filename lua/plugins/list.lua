@@ -158,12 +158,5 @@ return {
 		end,
 		ft = { "rust", "go" },
 	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		ft = { "go", "rust", "lua" },
-		config = function()
-			require("plugins.config.null-ls")
-		end,
-	},
 	-- LSP Support
 }
