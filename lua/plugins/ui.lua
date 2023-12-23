@@ -3,10 +3,10 @@ return {
 	"folke/twilight.nvim",
 	{
 		"uga-rosa/ccc.nvim",
+		cmd = { "CccHighlighterEnable", "CccHighlighterDisable", "CccHighlighterToggle", "CccPick", "CccConvert" },
 		config = function()
 			require("ccc").setup({})
 		end,
-		lazy = true,
 	},
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
 	{
