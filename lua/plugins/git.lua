@@ -83,5 +83,6 @@ return {
 		config = function()
 			require("octo").setup()
 		end,
+		event = "VeryLazy",
 	},
 }
