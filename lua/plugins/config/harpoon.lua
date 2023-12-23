@@ -1,21 +1,21 @@
-require("harpoon").setup({})
+local harpoon = require("harpoon")
 
-local map = function(mode, lhs, rhs, opts)
-	require("utils").map.set(mode, lhs, rhs, opts, { silent = true })
-end
+harpoon:setup()
 
-map("n", "<leader>ma", function()
-	require("harpoon.mark").add_file()
+local map = require("utils").map.set
+
+map("n", "<C-Q>", function()
+	harpoon:list():append()
 end, { desc = "Add mark" })
 
-map("n", "<leader>mm", function()
-	require("harpoon.ui").toggle_quickmenu()
+map("n", "<C-e>", function()
+	harpoon.ui:toggle_quick_menu(harpoon:list())
 end, { desc = "Show marks" })
 
-map("n", "<leader>mn", function()
-	require("harpoon.ui").nav_next()
+map("n", "<C-N>", function()
+	harpoon:list():next()
 end, { desc = "Next mark" })
 
-map("n", "<leader>mp", function()
-	require("harpoon.ui").nav_prev()
+map("n", "<C-P>", function()
+	harpoon:list():prev()
 end, { desc = "Prev mark" })
