@@ -9,4 +9,17 @@ return {
 		end,
 		priority = 1000,
 	},
+	{
+		"xiyaowong/transparent.nvim",
+		config = function()
+			require("transparent").setup({
+				extra_groups = {
+					"NormalFloat",
+					"NeoTreeNormal",
+					"NeoTreeNormalNC",
+					"NeoTreeEndOfBuffer",
+				},
+			})
+		end,
+	},
 }
