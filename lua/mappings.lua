@@ -16,6 +16,11 @@ end)
 -- map("i", "<C-k>", "<up>")
 -- map("i", "<C-l>", "<right>")
 
+map("n", "<left>", "<Nop>")
+map("n", "<down>", "<Nop>")
+map("n", "<right>", "<Nop>")
+map("n", "<up>", "<Nop>")
+
 -- Hub
 map("n", "<leader>hd", ":Alpha<CR>", { desc = "Dashboard" })
 map("n", "<leader>hr", ":source $HOME/.config/nvim/init.lua<CR>", { desc = "Hot reload" })
@@ -41,8 +46,8 @@ map("n", "<F11>", ":TagbarToggle<CR>")
 
 -- Telescope
 
-map("n", "<leader>fbn", "<CMD>NvimTreeToggle<CR>", { desc = "Browse files" })
-map("n", "<leader>ft", function()
+-- map("n", "<leader>fbn", "<CMD>NvimTreeToggle<CR>", { desc = "Browse files" })
+map("n", "<leader>fb", function()
 	require("telescope.builtin").buffers()
 end, { desc = "List buffers" })
 map("n", "<leader>ff", function()
