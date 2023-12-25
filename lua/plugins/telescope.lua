@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.4",
+		tag = "0.1.5",
 		-- or                              , branch = '0.1.1',
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -10,7 +10,16 @@ return {
 			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		config = function()
+			local actions = require("telescope.actions")
 			require("telescope").setup({
+				defaults = {
+					mappings = {
+						i = {
+							["<C-j>"] = actions.move_selection_next,
+							["<C-k>"] = actions.move_selection_previous,
+						},
+					},
+				},
 				extensions = {
 					-- file_browser = {
 					-- 	-- theme = "ivy",
@@ -35,20 +44,6 @@ return {
 						require("telescope.themes").get_dropdown({
 							-- even more opts
 						}),
-
-						-- pseudo code / specification for writing custom displays, like the one
-						-- for "codeactions"
-						-- specific_opts = {
-						--   [kind] = {
-						--     make_indexed = function(items) -> indexed_items, width,
-						--     make_displayer = function(widths) -> displayer
-						--     make_display = function(displayer) -> function(e)
-						--     make_ordinal = function(e) -> string
-						--   },
-						--   -- for example to disable the custom builtin "codeactions" display
-						--      do the following
-						--   codeactions = false,
-						-- }
 					},
 				},
 			})
@@ -61,5 +56,57 @@ return {
 			-- require("telescope").load_extension("projects")
 		end,
 		cmd = "Telescope",
+		keys = {
+			{
+				"<leader>fb",
+				function()
+					require("telescope.builtin").buffers()
+				end,
+				desc = "Buffers",
+			},
+			{
+				"<leader>ff",
+				function()
+					require("telescope.builtin").find_files()
+				end,
+				desc = "Find files",
+			},
+			{
+				"<leader>fg",
+				function()
+					require("telescope.builtin").grep_string()
+				end,
+				desc = "Live grep",
+			},
+			-- Git
+			{
+				"<leader>gs",
+				function()
+					require("telescope.builtin").git_status()
+				end,
+				desc = "Git status",
+			},
+			{
+				"<leader>gcl",
+				function()
+					require("telescope.builtin").git_commits()
+				end,
+				desc = "Git log",
+			},
+			{
+				"<leader>gb",
+				function()
+					require("telescope.builtin").git_branches()
+				end,
+				desc = "Git branches",
+			},
+			{
+				"<leader>gf",
+				function()
+					require("telescope.builtin").git_files()
+				end,
+				desc = "Git files",
+			},
+		},
 	},
 }
