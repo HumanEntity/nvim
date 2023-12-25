@@ -1,3 +1,3 @@
 return {
-	"HumanEntity/denote.nvim",
+	{ "HumanEntity/denote.nvim", cmd = "Denote", opts = {} },
 }
