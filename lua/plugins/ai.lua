@@ -14,8 +14,9 @@ return {
 		end,
 	},
 	{ "David-Kunz/gen.nvim" },
-	{
-		"Exafunction/codeium.vim",
-		event = "BufEnter",
-	},
+	-- {
+	-- 	cond = true,
+	-- 	"Exafunction/codeium.vim",
+	-- 	event = "BufEnter",
+	-- },
 }
