@@ -38,12 +38,6 @@ map("n", "<TAB>", "za")
 map("n", "<leader>zf", "zf%")
 
 vim.g.tagbar_focus_key = vim.api.nvim_replace_termcodes("<C-w>l", true, true, true)
-map("n", "<F12>", function()
-	vim.cmd(":TagbarToggle<CR>")
-	vim.cmd([[call nvim_feedkeys(g:tagbar_focus_key, 'n', v:false)]])
-	-- vim.api.feed_keys(key, "n", false)
-end)
-map("n", "<F11>", ":TagbarToggle<CR>")
 
 -- Telescope
 
