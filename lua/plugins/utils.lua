@@ -8,6 +8,7 @@ return {
 
 			vim.keymap.set("n", "<leader>fbe", "<CMD>Oil<CR>", { desc = "Edit file structure", silent = true })
 		end,
+		cond = false,
 	},
 	{
 		"ggandor/leap.nvim",
