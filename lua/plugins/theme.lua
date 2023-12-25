@@ -10,6 +10,15 @@ return {
 			TransparentEnable]])
 		end,
 		priority = 1000,
+		cond = false,
+	},
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		priority = 1000,
+		config = function()
+			vim.cmd("colorscheme rose-pine")
+		end,
 	},
 	{
 		"xiyaowong/transparent.nvim",
