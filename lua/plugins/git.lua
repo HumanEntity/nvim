@@ -58,6 +58,20 @@ return {
 			require("git-worktree").setup({})
 			require("telescope").load_extension("git_worktree")
 		end,
+		keys = {
+			{
+				"<leader>gwc",
+				function()
+					require("telescope").extensions.git_worktree.create_git_worktree()
+				end,
+			},
+			{
+				"<leader>gws",
+				function()
+					require("telescope").extensions.git_worktree.git_worktrees()
+				end,
+			},
+		},
 	},
 	{
 		"NeogitOrg/neogit",
