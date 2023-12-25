@@ -51,6 +51,9 @@ return {
 			require("alpha").setup(require("alpha.themes.theta").config)
 		end,
 		lazy = false,
+		keys = {
+			{ "<leader>hd", ":Alpha<CR>", desc = "Dashboard" },
+		},
 	},
 	{
 		"folke/todo-comments.nvim",
