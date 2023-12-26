@@ -16,6 +16,9 @@ end)
 -- map("i", "<C-k>", "<up>")
 -- map("i", "<C-l>", "<right>")
 
+map("n", "j", "gj")
+map("n", "k", "gk")
+
 map("n", "<left>", "<Nop>")
 map("n", "<down>", "<Nop>")
 map("n", "<right>", "<Nop>")
