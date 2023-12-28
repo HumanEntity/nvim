@@ -26,7 +26,7 @@ return {
 			require("transparent").setup({
 				extra_groups = {
 					"Normal",
-					"NormalFloat",
+					-- "NormalFloat",
 					"NeoTreeNormal",
 					"NeoTreeNormalNC",
 					"NeoTreeEndOfBuffer",
