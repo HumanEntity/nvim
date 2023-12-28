@@ -52,16 +52,19 @@ local mason_registry = require("mason-registry")
 
 local codelldb = mason_registry.get_package("codelldb")
 local codelldb_exe = codelldb:get_install_path() .. "/codelldb"
-dap.adapters.lldb = {
-	type = "executable",
-	command = codelldb_exe,
-	name = "lldb",
+dap.adapters.codelldb = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = codelldb_exe,
+		args = { "--port", "${port}" },
+	},
 }
 
 dap.configurations.cpp = {
 	{
 		name = "Launch",
-		type = "lldb",
+		type = "codelldb",
 		request = "launch",
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
