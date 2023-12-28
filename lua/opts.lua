@@ -78,5 +78,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.opt.cmdheight = 0
+
 -- VimTex
 vim.g.vimtex_view_method = "zathura"
