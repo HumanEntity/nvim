@@ -104,10 +104,10 @@ local NavicFull = {
 	update = "CursorMoved",
 }
 
--- local Navic = {
--- 	flexible = 1,
--- 	NavicFull,
--- 	NavicBasic,
--- }
+local Navic = {
+	flexible = 1,
+	NavicFull,
+	NavicBasic,
+}
 
-return NavicFull
+return Navic
