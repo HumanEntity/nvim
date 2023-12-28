@@ -22,9 +22,9 @@ return {
 			fg = p.text,
 			fg_alt = p.subtle,
 			yellow = p.gold,
-			cyan = p.rose,
+			cyan = p.foam,
 			green = p.pine,
-			orange = p.muted,
+			orange = p.rose,
 			magenta = p.iris,
 			blue = p.foam,
 			red = p.love,
@@ -32,9 +32,9 @@ return {
 			diag_error = utils.get_highlight("DiagnosticError").fg,
 			diag_hint = utils.get_highlight("DiagnosticHint").fg,
 			diag_info = utils.get_highlight("DiagnosticInfo").fg,
-			git_del = utils.get_highlight("DiffDelete").bg,
-			git_add = utils.get_highlight("DiffAdd").bg,
-			git_change = utils.get_highlight("DiffChange").bg,
+			git_del = p.love,
+			git_add = p.foam,
+			git_change = p.rose,
 		}
 
 		require("heirline").setup({
