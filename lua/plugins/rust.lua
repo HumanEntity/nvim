@@ -6,9 +6,9 @@ return {
 	{
 		"simrat39/rust-tools.nvim",
 		ft = "rust",
-		config = function()
-			require("plugins.config.rust-tools")
-		end,
+		-- config = function()
+		-- 	require("plugins.config.rust-tools")
+		-- end,
 	},
 	{
 		"saecki/crates.nvim",
