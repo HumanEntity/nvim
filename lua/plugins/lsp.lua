@@ -47,6 +47,15 @@ return {
 			})
 			vim.keymap.set("n", "<leader>ht", ":TroubleToggle<CR>")
 		end,
-		lazy = false,
+		cmd = "TroubleToggle",
+		-- lazy = false,
+	},
+	{
+		"SmiteshP/nvim-navic",
+		dependencies = { "neovim/nvim-lspconfig" },
+		event = "LspAttach",
+		config = function()
+			require("nvim-navic").setup({})
+		end,
 	},
 }

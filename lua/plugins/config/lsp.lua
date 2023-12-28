@@ -30,13 +30,23 @@ require("lspconfig").gdscript.setup({
 	end,
 })
 require("lspconfig").rust_analyzer.setup({
-	cmd = { "ra-multiplex" },
+	-- cmd = { "ra-multiplex" },
 })
 
 -- Make sure you setup `cmp` after lsp-zero
 
+-- lsp.set_sign_icons({
+-- 	error = " ",
+-- 	warn = " ",
+-- 	info = " ",
+-- 	hint = " ",
+-- })
+
 lsp.on_attach(function(client, bufnr)
 	require("fidget").setup({})
+	if client.server_capabilities.documentSymbolProvider then
+		require("nvim-navic").attach(client, bufnr)
+	end
 	-- local opts = { buffer = bufnr, remap = false }
 
 	-- local map = function(mode, lhs, rhs, opts)
