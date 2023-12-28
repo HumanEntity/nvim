@@ -4,6 +4,12 @@ local utils = require("heirline.utils")
 local LSPActive = {
 	condition = conditions.lsp_attached,
 	update = { "LspAttach", "LspDetach" },
+	on_click = {
+		callback = function()
+			vim.cmd("LspInfo")
+		end,
+		name = "statusline_lsp",
+	},
 
 	-- You can keep it simple,
 	-- provider = " [LSP]",
