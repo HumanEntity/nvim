@@ -39,7 +39,6 @@ function M.load_comps(components)
 		elseif M.is_special(comp) then
 			comps[#comps + 1] = { provider = comp }
 		elseif type(comp) == "string" then
-			print(comp)
 			comps[#comps + 1] = M.require_comp(comp)
 		end
 	end
@@ -48,26 +47,76 @@ end
 
 local utils = M.require_comp("utils")
 
-local components = {
-	{ "mode", surround = true },
-	utils.Space,
-	{ { "filename", utils.Space, "fileinfo", utils.Space, "git" }, surround = true },
-	-- utils.Space,
-	-- { "git", surround = true },
-	utils.Align,
+local default_components = {
 	{
-		{ "searchcount", "lsp" },
+		"mode",
+		surround = true,
+	},
+	utils.Space,
+	-- { "workdir", surround = true },
+	-- utils.Space,
+	{
+		{
+			"workdir",
+			-- utils.Space,
+			"filename",
+			utils.Space,
+			"fileinfo",
+			utils.Space,
+			"filelastmodified",
+			utils.Space,
+			"git",
+		},
+		surround = true,
+	},
+	utils.Space,
+	-- { "git", surround = true },
+	{
+		{ "lsp", "navic", "dap" },
 		surround = true,
 	},
 	utils.Align,
 	{
-		"ruler",
-		utils.Space,
-		"filetype",
+		{ "ruler", utils.Space, "filetype", utils.Space },
+		surround = true,
 	},
 }
 
-return M.load_comps(components)
+local inactive_components = {
+	{
+		{
+			"filename",
+			utils.Space,
+			"fileinfo",
+			utils.Space,
+			"filetype",
+		},
+		surround = true,
+	},
+}
+
+local conditions = require("heirline.conditions")
+
+local default = M.load_comps(default_components)
+
+local inactive = M.load_comps(inactive_components)
+inactive["condition"] = conditions.is_not_active
+
+return {
+	hl = function()
+		if conditions.is_active() then
+			return "StatusLine"
+		else
+			return "StatusLineNC"
+		end
+	end,
+
+	-- the first statusline with no condition, or which condition returns true is used.
+	-- think of it as a switch case with breaks to stop fallthrough.
+	fallthrough = false,
+	inactive,
+	default,
+}
 
 -- return {
 -- 	require_comp("mode"),
