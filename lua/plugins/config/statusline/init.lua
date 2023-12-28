@@ -49,7 +49,7 @@ local utils = M.require_comp("utils")
 
 local default_components = {
 	{
-		"mode",
+		{ "mode", "macrorec", "showcmd" },
 		surround = true,
 	},
 	utils.Space,
@@ -72,12 +72,12 @@ local default_components = {
 	utils.Space,
 	-- { "git", surround = true },
 	{
-		{ "lsp", "navic", "dap" },
+		{ "lsp", utils.Space, "navic", utils.Space, "dap" },
 		surround = true,
 	},
 	utils.Align,
 	{
-		{ "ruler", utils.Space, "filetype", utils.Space },
+		{ "spell", utils.Space, "ruler", utils.Space, "filetype", utils.Space },
 		surround = true,
 	},
 }
