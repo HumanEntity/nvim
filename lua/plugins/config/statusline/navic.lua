@@ -1,13 +1,3 @@
-local NavicBasic = {
-	condition = function()
-		return require("nvim-navic").is_available()
-	end,
-	provider = function()
-		return require("nvim-navic").get_location({ highlight = true })
-	end,
-	update = "CursorMoved",
-}
-
 local NavicFull = {
 	condition = function()
 		return require("nvim-navic").is_available()
@@ -104,10 +94,14 @@ local NavicFull = {
 	update = "CursorMoved",
 }
 
+local NavicDisabled = {
+	provider = "",
+}
+
 local Navic = {
 	flexible = 1,
 	NavicFull,
-	NavicBasic,
+	NavicDisabled,
 }
 
 return Navic
