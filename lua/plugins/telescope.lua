@@ -6,7 +6,6 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			"luc-tielen/telescope_hoogle",
 			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		config = function()
