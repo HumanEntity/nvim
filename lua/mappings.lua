@@ -24,6 +24,11 @@ map("n", "<down>", "<Nop>")
 map("n", "<right>", "<Nop>")
 map("n", "<up>", "<Nop>")
 
+map("i", "<left>", "<Nop>")
+map("i", "<down>", "<Nop>")
+map("i", "<right>", "<Nop>")
+map("i", "<up>", "<Nop>")
+
 -- Hub
 -- map("n", "<leader>hd", ":Alpha<CR>", { desc = "Dashboard" })
 map("n", "<leader>hr", ":source $HOME/.config/nvim/init.lua<CR>", { desc = "Hot reload" })
