@@ -49,7 +49,7 @@ local utils = M.require_comp("utils")
 
 local default_components = {
 	{
-		{ "mode", "macrorec", "showcmd" },
+		{ "mode", "macrorec", "showcmd", "searchcount" },
 		surround = true,
 	},
 	utils.Space,
