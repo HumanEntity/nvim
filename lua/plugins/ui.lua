@@ -17,6 +17,7 @@ return {
 			vim.notify = notify
 			notify.setup()
 		end,
+		enabled = false,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
