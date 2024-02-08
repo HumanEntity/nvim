@@ -15,6 +15,7 @@ return {
 				org_default_notes_file = "~/orgfiles/refile.org",
 			})
 		end,
+		enabled = false,
 	},
 	{ "ron-rs/ron.vim", lazy = false },
 	{ "DingDean/wgsl.vim", lazy = false },
