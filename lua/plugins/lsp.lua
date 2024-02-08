@@ -2,7 +2,7 @@ return {
 	{
 		"folke/neodev.nvim",
 		config = function()
-			-- require("neodev").setup({})
+			require("neodev").setup({})
 		end,
 		ft = "lua",
 	},
