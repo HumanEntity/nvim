@@ -63,4 +63,12 @@ return {
 		end,
 		lazy = false,
 	},
+	{
+		"roxma/vim-window-resize-easy",
+		event = "VeryLazy",
+	},
+	{
+		"stevearc/dressing.nvim",
+		opts = {},
+	},
 }
