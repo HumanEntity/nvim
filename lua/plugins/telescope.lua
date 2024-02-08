@@ -84,6 +84,13 @@ return {
 				end,
 				desc = "Git files",
 			},
+			{
+				"<backspace>",
+				function()
+					require("telescope.builtin").find_files()
+				end,
+				desc = "Find files",
+			},
 		},
 	},
 }
