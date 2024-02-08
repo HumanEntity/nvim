@@ -42,20 +42,7 @@ require("lspconfig").rust_analyzer.setup({
 -- 	hint = " ",
 -- })
 
-lsp.on_attach(function(client, bufnr)
-	require("fidget").setup({})
-	if client.server_capabilities.documentSymbolProvider then
-		require("nvim-navic").attach(client, bufnr)
-	end
-	-- local opts = { buffer = bufnr, remap = false }
-
-	-- local map = function(mode, lhs, rhs, opts)
-	-- 	local options = opts or {}
-	-- 	options.buffer = bufnr
-	-- 	options.remap = false
-	-- 	vim.keymap.set(mode, lhs, rhs, opts)
-	-- end
-
+local on_attach = function(client, bufnr)
 	local utils = require("utils")
 	local map = function(mode, lhs, rhs, opts)
 		local desc = "LSP: " .. opts.desc
@@ -95,7 +82,37 @@ lsp.on_attach(function(client, bufnr)
 		vim.lsp.buf.signature_help()
 	end, { desc = "Signature help" })
 	map("n", "<leader>af", ":LspZeroFormat<CR>", { desc = "Format" })
-end)
+end
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+	properties = { "documentation", "detail", "additionalTextEdits" },
+}
+
+lsp.on_attach(on_attach)
+
+require("lspconfig").clangd.setup({
+	on_attach = on_attach,
+	cmd = {
+		-- "/opt/homebrew/opt/llvm/bin/clangd",
+		"/usr/bin/clangd",
+		"--background-index",
+		"--pch-storage=memory",
+		"--all-scopes-completion",
+		"--pretty",
+		"--header-insertion=never",
+		"-j=4",
+		"--inlay-hints",
+		"--header-insertion-decorators",
+		"--function-arg-placeholders",
+		"--completion-style=detailed",
+	},
+	filetypes = { "c", "cpp", "objc", "objcpp" },
+	root_dir = require("lspconfig").util.root_pattern("src"),
+	init_option = { fallbackFlags = { "-std=c++2a" } },
+	capabilities = capabilities,
+})
 
 lsp.setup()
 
