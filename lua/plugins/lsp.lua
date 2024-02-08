@@ -25,18 +25,11 @@ return {
 			-- Autocompletion
 			{
 				"hrsh7th/nvim-cmp",
-				dependencies = {
-					{ "hrsh7th/cmp-nvim-lsp" }, -- Required
-					{ "hrsh7th/cmp-buffer" },
-					{ "hrsh7th/cmp-path" },
-					{ "saadparwaiz1/cmp_luasnip" },
-				},
 			}, -- Required
 			{
 				"L3MON4D3/LuaSnip",
 				dependencies = { "rafamadriz/friendly-snippets" },
 			}, -- Required
-			{ "j-hui/fidget.nvim", tag = "legacy", event = "LspAttach" },
 		},
 	},
 	{
@@ -49,13 +42,5 @@ return {
 		end,
 		cmd = "TroubleToggle",
 		-- lazy = false,
-	},
-	{
-		"SmiteshP/nvim-navic",
-		dependencies = { "neovim/nvim-lspconfig" },
-		event = "LspAttach",
-		config = function()
-			require("nvim-navic").setup({})
-		end,
 	},
 }
