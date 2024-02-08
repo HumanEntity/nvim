@@ -51,4 +51,8 @@ return {
 			{ "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
 		},
 	},
+	{
+		"tpope/vim-dispatch",
+		lazy = false,
+	},
 }
