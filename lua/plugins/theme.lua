@@ -47,4 +47,8 @@ return {
 			-- })
 		end,
 	},
+	{
+		"zefei/vim-colortuner",
+		priority = 10,
+	},
 }
