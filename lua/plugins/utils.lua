@@ -1,16 +1,5 @@
 return {
 	{
-		"stevearc/oil.nvim",
-		-- Optional dependencies
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("oil").setup()
-
-			vim.keymap.set("n", "<leader>fbe", "<CMD>Oil<CR>", { desc = "Edit file structure", silent = true })
-		end,
-		cond = false,
-	},
-	{
 		"ggandor/leap.nvim",
 		config = function()
 			require("leap").add_default_mappings()
