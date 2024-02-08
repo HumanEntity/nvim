@@ -50,7 +50,16 @@ return {
 		end,
 	},
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
-	{ "rhysd/git-messenger.vim" },
+	{
+		"rhysd/git-messenger.vim",
+		keys = {
+			"<leader>gcc",
+			function()
+				vim.cmd("GitMessenger")
+			end,
+			{ desc = "Git messenger" },
+		},
+	},
 	{
 		"ThePrimeagen/git-worktree.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
