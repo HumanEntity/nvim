@@ -19,13 +19,6 @@ return {
 	{ "ron-rs/ron.vim", lazy = false },
 	{ "DingDean/wgsl.vim", lazy = false },
 	-- Markdown
-	-- {
-	-- 	"iamcco/markdown-preview.nvim",
-	-- 	build = function()
-	-- 		vim.fn["mkdp#util#install"]()
-	-- 	end,
-	-- 	fn = "markdown",
-	-- },
 	{
 		"preservim/vim-markdown",
 		requires = {
