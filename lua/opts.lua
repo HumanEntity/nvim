@@ -54,5 +54,7 @@ vim.opt.updatetime = 50
 
 vim.opt.cmdheight = 0
 
+vim.opt.background = "dark"
+
 -- VimTex
 vim.g.vimtex_view_method = "zathura"
