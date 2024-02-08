@@ -47,44 +47,6 @@ map("n", "<leader>zf", "zf%")
 
 vim.g.tagbar_focus_key = vim.api.nvim_replace_termcodes("<C-w>l", true, true, true)
 
--- Telescope
-
--- map("n", "<leader>fbn", "<CMD>NvimTreeToggle<CR>", { desc = "Browse files" })
--- map("n", "<leader>fb", function()
--- 	require("telescope.builtin").buffers()
--- end, { desc = "List buffers" })
--- map("n", "<leader>ff", function()
--- 	require("telescope.builtin").find_files()
--- end, { desc = "Find files" })
--- map("n", "<leader>fg", function()
--- 	require("telescope.builtin").grep_string()
--- end, { desc = "Grep string" })
-
--- Git
--- map("n", "<leader>gs", function()
--- 	require("telescope.builtin").git_status()
--- end, { desc = "Git status" })
--- map("n", "<leader>gcl", function()
--- 	require("telescope.builtin").git_commits()
--- end, { desc = "Git list commits" })
--- map("n", "<leader>gb", function()
--- 	require("telescope.builtin").git_branches()
--- end, { desc = "Git branches" })
--- map("n", "<leader>gf", function()
--- 	require("telescope.builtin").git_files()
--- end, { desc = "Git files" })
--- map("n", "<leader>gcc", function()
--- 	vim.cmd("GitMessenger")
--- end, { desc = "Git line commit" })
-
--- Git worktrees
--- map("n", "<leader>gwc", function()
--- 	require("telescope").extensions.git_worktree.create_git_worktree()
--- end, { desc = "Create git worktree" })
--- map("n", "<leader>gws", function()
--- 	require("telescope").extensions.git_worktree.git_worktrees()
--- end, { desc = "List git worktrees" })
-
 -- Lazy
 
 map("n", "<leader>ls", ":Lazy show<CR>", { desc = "Show" })
