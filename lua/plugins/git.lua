@@ -53,11 +53,14 @@ return {
 	{
 		"rhysd/git-messenger.vim",
 		keys = {
-			"<leader>gcc",
-			function()
-				vim.cmd("GitMessenger")
-			end,
-			{ desc = "Git messenger" },
+			{
+
+				"<leader>gcc",
+				function()
+					vim.cmd("GitMessenger")
+				end,
+				{ desc = "Git messenger" },
+			},
 		},
 	},
 	{
