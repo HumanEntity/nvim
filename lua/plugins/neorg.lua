@@ -20,7 +20,6 @@ return {
 					["core.tangle"] = {},
 					["core.integrations.treesitter"] = {},
 					["core.ui"] = {},
-					["core.ui.calendar"] = {},
 					["core.journal"] = { config = { strategy = "flat", workspace = "journal" } },
 					["core.qol.todo_items"] = {},
 					["core.export"] = {},
