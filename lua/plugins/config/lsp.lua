@@ -48,6 +48,7 @@ local on_attach = function(client, bufnr)
 		local desc = "LSP: " .. opts.desc
 		utils.map(mode, lhs, rhs, opts, { buffer = bufnr, remap = false, desc = desc })
 	end
+	require("lsp-inlayhints").on_attach(client, bufnr)
 
 	map("n", "gd", vim.lsp.buf.definition, { desc = "Goto definition" })
 	map("n", "gr", require("telescope.builtin").lsp_references, { desc = "Goto References" })
