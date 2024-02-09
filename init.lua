@@ -1,3 +1,4 @@
+vim.loader.enable()
 require("opts")
 require("package_manager")
 require("autocmds")
