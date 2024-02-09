@@ -1,4 +1,4 @@
-local lsp = require("lsp-zero").preset({})
+local lsp = require("lsp-zero").preset("lsp-compe")
 
 local servers = {
 	"rust_analyzer",
