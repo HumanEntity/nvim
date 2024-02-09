@@ -85,36 +85,38 @@ local on_attach = function(client, bufnr)
 	map("n", "<leader>af", ":LspZeroFormat<CR>", { desc = "Format" })
 end
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-	properties = { "documentation", "detail", "additionalTextEdits" },
-}
+-- local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.resolveSupport = {
+-- 	properties = { "documentation", "detail", "additionalTextEdits" },
+-- }
 
 lsp.on_attach(on_attach)
 
-require("lspconfig").clangd.setup({
-	on_attach = on_attach,
-	cmd = {
-		-- "/opt/homebrew/opt/llvm/bin/clangd",
-		"/usr/bin/clangd",
-		"--background-index",
-		"--pch-storage=memory",
-		"--all-scopes-completion",
-		"--pretty",
-		"--header-insertion=never",
-		"-j=4",
-		"--inlay-hints",
-		"--header-insertion-decorators",
-		"--function-arg-placeholders",
-		"--completion-style=detailed",
-	},
-	filetypes = { "c", "cpp", "objc", "objcpp" },
-	root_dir = require("lspconfig").util.root_pattern("src"),
-	init_option = { fallbackFlags = { "-std=c++2a" } },
-	capabilities = capabilities,
-})
+-- require("lspconfig").clangd.setup({
+-- 	on_attach = on_attach,
+-- 	cmd = {
+-- 		-- "/opt/homebrew/opt/llvm/bin/clangd",
+-- 		"/usr/bin/clangd",
+-- 		"--background-index",
+-- 		"--pch-storage=memory",
+-- 		"--all-scopes-completion",
+-- 		"--pretty",
+-- 		"--header-insertion=never",
+-- 		"-j=4",
+-- 		"--inlay-hints",
+-- 		"--header-insertion-decorators",
+-- 		"--function-arg-placeholders",
+-- 		"--completion-style=detailed",
+-- 	},
+-- 	filetypes = { "c", "cpp", "objc", "objcpp" },
+-- 	root_dir = require("lspconfig").util.root_pattern("src"),
+-- 	init_option = { fallbackFlags = { "-std=c++2a" } },
+-- 	capabilities = capabilities,
+-- })
+
+-- lsp.setup_nvim_cmp(require("plugins.config.cmp"))
 
 lsp.setup()
 
-require("plugins.cmp")
+require("cmp").setup(require("plugins.config.cmp"))
