@@ -38,6 +38,12 @@ return {
 					require("lsp_signature").setup(opts)
 				end,
 			},
+			{
+				"lvimuser/lsp-inlayhints.nvim",
+				config = function()
+					require("lsp-inlayhints").setup()
+				end,
+			},
 		},
 	},
 	{
