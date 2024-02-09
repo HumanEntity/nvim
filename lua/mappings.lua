@@ -47,11 +47,6 @@ map("n", "<leader>zf", "zf%")
 
 vim.g.tagbar_focus_key = vim.api.nvim_replace_termcodes("<C-w>l", true, true, true)
 
--- Lazy
-
-map("n", "<leader>ls", ":Lazy show<CR>", { desc = "Show" })
-map("n", "<leader>lc", ":Lazy clean<CR>", { desc = "Clean" })
-
 -- ---------------------------------
 --           -- Notes --
 -- ---------------------------------
