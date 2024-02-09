@@ -10,6 +10,7 @@ return {
 				"L3MON4D3/LuaSnip",
 				dependencies = { "rafamadriz/friendly-snippets" },
 			}, -- Required
+			{ "onsails/lspkind.nvim" },
 		},
 		config = function()
 			require("plugins.config.cmp")
