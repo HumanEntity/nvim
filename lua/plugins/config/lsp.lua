@@ -35,12 +35,12 @@ require("lspconfig").rust_analyzer.setup({
 
 -- Make sure you setup `cmp` after lsp-zero
 
--- lsp.set_sign_icons({
--- 	error = " ",
--- 	warn = " ",
--- 	info = " ",
--- 	hint = " ",
--- })
+lsp.set_sign_icons({
+	error = " ",
+	warn = " ",
+	info = " ",
+	hint = " ",
+})
 
 local on_attach = function(client, bufnr)
 	local utils = require("utils")
