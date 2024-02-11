@@ -1,6 +1,18 @@
 return {
-	"folke/zen-mode.nvim",
-	"folke/twilight.nvim",
+	{
+		"folke/zen-mode.nvim",
+		dependencies = {
+			"folke/twilight.nvim",
+		},
+		opts = {
+			on_open = function()
+				require("lualine").hide()
+			end,
+			on_close = function()
+				require("lualine").hide({ unhide = true })
+			end,
+		},
+	},
 	{
 		"uga-rosa/ccc.nvim",
 		cmd = { "CccHighlighterEnable", "CccHighlighterDisable", "CccHighlighterToggle", "CccPick", "CccConvert" },
