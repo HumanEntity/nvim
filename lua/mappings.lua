@@ -45,7 +45,6 @@ map("n", "<leader>sd", ":split<CR>")
 map("n", "<TAB>", "za")
 map("n", "<leader>zf", "zf%")
 
-vim.g.tagbar_focus_key = vim.api.nvim_replace_termcodes("<C-w>l", true, true, true)
 
 -- ---------------------------------
 --           -- Notes --
