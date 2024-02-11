@@ -99,11 +99,11 @@ return {
 					lualine_y = {},
 					lualine_z = { "location" },
 				},
-				tabline = {
-					lualine_a = {
-						"buffers",
-					},
-				},
+				-- tabline = {
+				-- 	lualine_a = {
+				-- 		"buffers",
+				-- 	},
+				-- },
 				extensions = {
 					"quickfix",
 					"fugitive",
