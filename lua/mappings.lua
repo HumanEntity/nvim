@@ -43,6 +43,12 @@ map("n", "<leader>sd", ":split<CR>")
 -- Code Folding
 map("n", "<TAB>", "za")
 
+-- Groups
+
+map("n", "<leader>h", nil, { desc = " Hub" })
+map("n", "<leader>l", nil, { desc = "  LSP" })
+map("n", "<leader>g", nil, { desc = "󰊢 Git" })
+map("n", "<leader>f", nil, { desc = " Find" })
 
 -- ---------------------------------
 --           -- Notes --
