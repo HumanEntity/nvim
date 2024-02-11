@@ -18,14 +18,11 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
 		},
-		keys = {
-			{
-				"<leader>ls",
-				function()
-					require("aerial").toggle()
-				end,
-				{ desc = "Symbols Outline" },
-			},
-		},
+		config = function()
+			local utils = require("utils")
+			utils.map("n", "<leader>ls", function()
+				require("aerial").toggle()
+			end, { desc = "Symbols Outline" })
+		end,
 	},
 }
