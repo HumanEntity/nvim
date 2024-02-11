@@ -8,7 +8,7 @@ return {
 	},
 	{
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		config = function()
 			require("plugins.config.lsp")
 		end,
