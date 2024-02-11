@@ -30,7 +30,6 @@ map("i", "<right>", "<Nop>")
 map("i", "<up>", "<Nop>")
 
 -- Hub
--- map("n", "<leader>hd", ":Alpha<CR>", { desc = "Dashboard" })
 map("n", "<leader>hr", ":source $HOME/.config/nvim/init.lua<CR>", { desc = "Hot reload" })
 map("n", "<leader>hnw", ":Neorg workspace ", { desc = "Neorg workspace", silent = false })
 map("n", "<leader>hnj", ":Neorg journal ", { desc = "Neorg journal", silent = false })
@@ -43,7 +42,6 @@ map("n", "<leader>sd", ":split<CR>")
 
 -- Code Folding
 map("n", "<TAB>", "za")
-map("n", "<leader>zf", "zf%")
 
 
 -- ---------------------------------
