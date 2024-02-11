@@ -48,12 +48,11 @@ return {
 	},
 	sources = cmp.config.sources({
 		{ name = "path" },
-		{ name = "luasnip" },
+		{ name = "nvim_lsp", keyword_length = 3 },
+		{ name = "buffer", keyword_length = 3 },
+		{ name = "luasnip", keyword_length = 2 },
 		-- { name = "codeium" },
-		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
 		-- { name = "orgmode" },
-		{ name = "buffer" },
 		{ name = "crates" },
 	}),
 	window = {
