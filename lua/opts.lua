@@ -14,7 +14,7 @@ local custom_fold_text = function()
 	return lines[0]
 end
 
-vim.wo.foldlevel = 2
+vim.wo.foldlevel = 5
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
