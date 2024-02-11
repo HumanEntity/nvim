@@ -32,6 +32,7 @@ require("lspconfig").gdscript.setup({
 require("lspconfig").rust_analyzer.setup({
 	-- cmd = { "ra-multiplex" },
 })
+require("lspconfig").marksman.setup({})
 
 -- Make sure you setup `cmp` after lsp-zero
 
