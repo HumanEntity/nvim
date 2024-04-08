@@ -1,4 +1,4 @@
-local lsp = require("lsp-zero").preset("lsp-compe")
+local lsp = require("lsp-zero").preset("recommended")
 
 local servers = {
 	"rust_analyzer",
@@ -31,8 +31,19 @@ require("lspconfig").gdscript.setup({
 })
 require("lspconfig").rust_analyzer.setup({
 	-- cmd = { "ra-multiplex" },
+	settings = {
+		["rust-analyzer"] = {
+			checkOnSave = {
+				command = "clippy",
+			},
+		},
+	},
 })
 require("lspconfig").marksman.setup({})
+require("lspconfig").pylsp.setup({})
+require("lspconfig").ols.setup({
+	-- capabilites = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+})
 
 -- Make sure you setup `cmp` after lsp-zero
 
@@ -63,22 +74,22 @@ local on_attach = function(client, bufnr)
 		vim.lsp.buf.hover()
 		-- end
 	end, { desc = "Hover info" })
-	map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature info" })
-	map("n", "<leader>lws", vim.lsp.buf.workspace_symbol, { desc = "Workspace symbol" })
-	map("n", "<leader>ld", vim.diagnostic.open_float, { desc = "diagnostic" })
+	-- map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature info" })
+	map("n", "<leader>vws", vim.lsp.buf.workspace_symbol, { desc = "Workspace symbol" })
+	map("n", "<leader>vd", vim.diagnostic.open_float, { desc = "diagnostic" })
 	map("n", "[d", function()
 		vim.diagnostic.goto_next()
 	end, { desc = "Next diagnostic" })
 	map("n", "]d", function()
 		vim.diagnostic.goto_prev()
 	end, { desc = "Prev diagnostic" })
-	map("n", "<leader>la", function()
+	map("n", "<leader>vca", function()
 		vim.lsp.buf.code_action()
 	end, { desc = "Code action" })
-	map("n", "<leader>lrr", function()
+	map("n", "<leader>vrr", function()
 		vim.lsp.buf.references()
 	end, { desc = "References" })
-	map("n", "<leader>lrn", function()
+	map("n", "<leader>vrn", function()
 		vim.lsp.buf.rename()
 	end, { desc = "Rename" })
 	map("i", "<C-h>", function()
