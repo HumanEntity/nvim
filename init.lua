@@ -1,5 +1,6 @@
 vim.loader.enable()
 require("opts")
+require("custom.focus")
 require("package_manager")
 require("autocmds")
 require("mappings")
