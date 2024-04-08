@@ -37,8 +37,8 @@ map("n", "<leader>hnn", ":Neorg workspace notes<CR>", { desc = "Neorg notes work
 map("n", "<leader>hs", require("utils").scratch, { desc = "Open scratch buffer" })
 
 -- Splitting
-map("n", "<leader>ss", ":vsplit<CR>")
-map("n", "<leader>sd", ":split<CR>")
+-- map("n", "<leader>ss", ":vsplit<CR>")
+-- map("n", "<leader>sd", ":split<CR>")
 
 -- Code Folding
 map("n", "<TAB>", "za")
