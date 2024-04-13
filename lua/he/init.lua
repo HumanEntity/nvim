@@ -1,0 +1,6 @@
+vim.loader.enable()
+require("he.opts")
+require("he.custom.focus")
+require("he.lazy_init")
+require("he.autocmds")
+require("he.mappings")
