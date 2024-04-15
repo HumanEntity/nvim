@@ -51,6 +51,8 @@ return {
 					vim.keymap.set("n", "<leader>c", function()
 						vim.cmd.Git({ "commit" })
 					end, opts)
+
+					vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
 				end,
 			})
 		end,
