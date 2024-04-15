@@ -19,6 +19,9 @@ end)
 map("n", "j", "gj")
 map("n", "k", "gk")
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 map("n", "<left>", "<Nop>")
 map("n", "<down>", "<Nop>")
 map("n", "<right>", "<Nop>")

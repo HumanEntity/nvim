@@ -65,4 +65,22 @@ function M.get_hlgroup(name, fallback)
 	return fallback or {}
 end
 
+---Clears background from transparent.nvim
+---@param group string|string[]
+function M:clear_group(group)
+	-- local start = vim.loop.hrtime()
+
+	local groups = type(group) == "string" and { group } or group
+	for _, v in ipairs(groups) do
+		local ok, prev_attrs = pcall(vim.api.nvim_get_hl_by_name, v, true)
+		if ok and (prev_attrs.background or prev_attrs.bg or prev_attrs.ctermbg) then
+			local attrs = vim.tbl_extend("force", prev_attrs, { bg = "NONE", ctermbg = "NONE" })
+			attrs[true] = nil
+			vim.api.nvim_set_hl(0, v, attrs)
+		end
+	end
+
+	-- print((vim.loop.hrtime() - start) / 1e6, "ms")
+end
+
 return M
