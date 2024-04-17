@@ -21,6 +21,11 @@ return {
 					relative_time = false,
 				},
 			})
+
+			vim.keymap.set("n", "<C-s>h", gitsigns.stage_hunk)
+			vim.keymap.set("n", "<C-s>b", gitsigns.stage_buffer)
+			vim.keymap.set("n", "]h", gitsigns.next_hunk)
+			vim.keymap.set("n", "[h", gitsigns.prev_hunk)
 		end,
 	},
 	{

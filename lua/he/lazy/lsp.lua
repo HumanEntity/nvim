@@ -6,7 +6,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-		-- "hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-cmdline",
 		"hrsh7th/nvim-cmp",
 		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
@@ -78,10 +78,9 @@ return {
 			},
 			sources = cmp.config.sources({
 				{ name = "path" },
-				{ name = "nvim_lsp", keyword_length = 3 },
-				{ name = "buffer", keyword_length = 3 },
-				{ name = "luasnip", keyword_length = 2 },
-				{ name = "crates" },
+				{ name = "luasnip", keyword_length = 1 },
+				{ name = "nvim_lsp", keyword_length = 2 },
+				{ name = "buffer", keyword_length = 1 },
 			}),
 		})
 		vim.diagnostic.config({

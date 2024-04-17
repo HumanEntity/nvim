@@ -2,14 +2,6 @@ local M = {}
 
 M.map = function(mode, lhs, rhs, opts, default_opts)
 	local options = opts or {}
-	if rhs == nil then
-		require("which-key").register({
-			[lhs] = {
-				name = " " .. opts.desc,
-			},
-		})
-		return
-	end
 	if default_opts ~= nil then
 		for opt, val in pairs(default_opts) do
 			options[opt] = val

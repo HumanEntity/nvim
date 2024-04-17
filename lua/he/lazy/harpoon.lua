@@ -26,7 +26,7 @@ return {
 		-- map("n", "<C-P>", function()
 		-- 	harpoon:list():prev()
 		-- end, { desc = "Prev mark" })
-		map("n", "<C-y>", function()
+		map("n", "<C-h>", function()
 			harpoon:list():select(1)
 		end)
 		map("n", "<C-t>", function()

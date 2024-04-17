@@ -46,14 +46,6 @@ map("n", "<leader>hs", require("he.utils").scratch, { desc = "Open scratch buffe
 -- Code Folding
 map("n", "<TAB>", "za")
 
--- Groups
-
-map("n", "<leader>h", nil, { desc = " Hub" })
-map("n", "<leader>v", nil, { desc = "  LSP" })
-map("n", "<leader>g", nil, { desc = "󰊢 Git" })
-map("n", "<leader>f", nil, { desc = " Find" })
-map("n", "<leader>t", nil, { desc = " Terminal" })
-
 -- ---------------------------------
 --           -- Notes --
 -- ---------------------------------
