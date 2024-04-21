@@ -34,6 +34,23 @@ autocmd("BufWritePre", {
 	end,
 })
 
+autocmd("TextYankPost", {
+	group = HeGroup,
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timeout = 40,
+		})
+	end,
+})
+
+autocmd({ "BufWritePre" }, {
+	group = HeGroup,
+	pattern = "*",
+	command = [[%s/\s\+$//e]],
+})
+
 autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = "netrw",
 	group = HeGroup,
@@ -83,6 +100,9 @@ autocmd({ "LspAttach" }, {
 		vim.keymap.set("n", "<leader>vrn", function()
 			vim.lsp.buf.rename()
 		end, { desc = "Rename" })
+		vim.keymap.set("n", "<C-q>", function()
+			vim.diagnostic.setqflist({ open = true })
+		end)
 		vim.keymap.set("i", "<C-h>", function()
 			vim.lsp.buf.signature_help()
 		end, { desc = "Signature help" })
