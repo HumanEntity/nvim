@@ -23,7 +23,6 @@ return {
 			vim.lsp.protocol.make_client_capabilities(),
 			cmp_lsp.default_capabilities()
 		)
-
 		require("fidget").setup()
 		require("mason").setup()
 		require("mason-lspconfig").setup({
@@ -35,6 +34,19 @@ return {
 				function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
+					})
+				end,
+				["rust_analyzer"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.rust_analyzer.setup({
+						capabilities = capabilities,
+						settings = {
+							["rust-analyzer"] = {
+								checkOnSave = {
+									command = "clippy",
+								},
+							},
+						},
 					})
 				end,
 				["lua_ls"] = function()
