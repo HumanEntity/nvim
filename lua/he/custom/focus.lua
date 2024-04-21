@@ -17,8 +17,6 @@ end
 api.nvim_create_user_command("Focus", focus_toggle, {})
 keymap.set("n", "<leader>z", focus_toggle)
 
-focus_toggle()
-
 return {
 	focus_toggle,
 }
