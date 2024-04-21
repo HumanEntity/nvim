@@ -8,12 +8,6 @@ set spell spelllang=en_us
 ]])
 vim.g.git_messenger_no_default_mappings = true
 
-local custom_fold_text = function()
-	local lines = vim.api.nvim_buf_get_lines(0, vim.v.foldstart, vim.v.foldend, true)
-	print(lines[0])
-	return lines[0]
-end
-
 vim.wo.foldlevel = 5
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
@@ -51,6 +45,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+vim.opt.timeoutlen = 300
 
 vim.opt.cmdheight = 1
 
