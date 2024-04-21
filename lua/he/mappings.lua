@@ -16,11 +16,25 @@ end)
 -- map("i", "<C-k>", "<up>")
 -- map("i", "<C-l>", "<right>")
 
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
 map("n", "j", "gj")
 map("n", "k", "gk")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- greatest remap ever
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+vim.keymap.set("n", "<C-f>", ":!tmux neww tmux-sessionizer.sh<CR>")
 
 map("n", "<left>", "<Nop>")
 map("n", "<down>", "<Nop>")
@@ -32,16 +46,9 @@ map("i", "<down>", "<Nop>")
 map("i", "<right>", "<Nop>")
 map("i", "<up>", "<Nop>")
 
--- Hub
-map("n", "<leader>hr", ":source $HOME/.config/nvim/init.lua<CR>", { desc = "Hot reload" })
-map("n", "<leader>hnw", ":Neorg workspace ", { desc = "Neorg workspace", silent = false })
-map("n", "<leader>hnj", ":Neorg journal ", { desc = "Neorg journal", silent = false })
-map("n", "<leader>hnn", ":Neorg workspace notes<CR>", { desc = "Neorg notes workspace" })
-map("n", "<leader>hs", require("he.utils").scratch, { desc = "Open scratch buffer" })
-
--- Splitting
--- map("n", "<leader>ss", ":vsplit<CR>")
--- map("n", "<leader>sd", ":split<CR>")
+-- Quickfix
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 
 -- Code Folding
 map("n", "<TAB>", "za")
