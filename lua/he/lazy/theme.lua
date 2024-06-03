@@ -11,6 +11,8 @@ local function setup_colors(theme)
 		"DiagnosticVirtualTextInfo",
 		"DiagnosticVirtualTextWarn",
 		"DiagnosticVirtualTextError",
+		"TelescopeNormal",
+		"TelescopeBorder",
 	}
 
 	utils:clear_group(toclear)
@@ -18,15 +20,14 @@ end
 
 return {
 	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		priority = 1000,
+		"craftzdog/solarized-osaka.nvim",
 		lazy = false,
+		priority = 1000,
 		config = function()
-			require("rose-pine").setup({
-				disable_background = true,
+			require("solarized-osaka").setup({
+				transparent = true,
 			})
-			setup_colors("rose-pine")
+			vim.cmd("colorscheme solarized-osaka")
 		end,
 	},
 }
