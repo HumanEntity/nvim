@@ -103,3 +103,5 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 -- 		vim.cmd.TableModeDisable()
 -- 	end,
 -- })
+
+require("he.custom.discipline").cowboy()
