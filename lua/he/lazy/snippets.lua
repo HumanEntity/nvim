@@ -8,9 +8,31 @@ return {
 
 		config = function()
 			local ls = require("luasnip")
+			ls.setup()
+
+			local s = ls.snippet
+			local sn = ls.snippet_node
+			local t = ls.text_node
+			local i = ls.insert_node
+			local f = ls.function_node
+			local c = ls.choice_node
+			local d = ls.dynamic_node
+			local r = ls.restore_node
+			local fmt = require("luasnip.extras.fmt").fmt
+
+			ls.add_snippets("c", {
+				s("reg", {
+					t({ "//////////////////////////////", "/// NOTE(" }),
+					i(1),
+					t("): "),
+					i(0),
+				}),
+			})
+
 			require("luasnip.loaders.from_vscode").lazy_load()
 			ls.filetype_extend("javascript", { "jsdoc" })
 			ls.filetype_extend("rust", { "rustdoc" })
+			ls.filetype_extend("c", { "cdoc" })
 
 			vim.keymap.set({ "i" }, "<C-s>e", function()
 				ls.expand()
