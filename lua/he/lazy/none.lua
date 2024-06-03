@@ -1,7 +1,7 @@
 return {
 	{
 		"nvimtools/none-ls.nvim",
-		ft = { "go", "rust", "lua", "python" },
+		ft = { "go", "rust", "lua", "python", "c", "cpp" },
 		config = function()
 			local null_ls = require("null-ls")
 			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -18,6 +18,7 @@ return {
 					null_ls.builtins.diagnostics.mypy,
 					null_ls.builtins.formatting.black,
 					-- null_ls.builtins.formatting.latexindent,
+					null_ls.builtins.formatting.clang_format,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
