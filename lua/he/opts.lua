@@ -26,7 +26,7 @@ vim.opt.expandtab = false
 -- vim.opt.autoindent = true
 vim.opt.smartindent = true
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 -- vim.opt.textwidth = 0
 -- vim.opt.wrapmargin = 0
 
