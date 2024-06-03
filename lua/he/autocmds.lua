@@ -108,3 +108,12 @@ autocmd({ "LspAttach" }, {
 		end, { desc = "Signature help" })
 	end,
 })
+
+autocmd({ "BufEnter" }, {
+	group = HeGroup,
+	pattern = "*.h",
+	callback = function()
+		vim.bo.filetype = "c"
+		print("change to c")
+	end,
+})
