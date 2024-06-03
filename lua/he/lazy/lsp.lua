@@ -23,6 +23,23 @@ return {
 			vim.lsp.protocol.make_client_capabilities(),
 			cmp_lsp.default_capabilities()
 		)
+
+		local function border(hl_name)
+			return {
+				{ "╭", hl_name },
+				{ "─", hl_name },
+				{ "╮", hl_name },
+				{ "│", hl_name },
+				{ "╯", hl_name },
+				{ "─", hl_name },
+				{ "╰", hl_name },
+				{ "│", hl_name },
+			}
+		end
+
+		vim.lsp.handlers["textDocument/hover"] =
+			vim.lsp.with(vim.lsp.handlers.hover, { border = border("FloatBorder") })
+
 		require("fidget").setup()
 		require("mason").setup()
 		require("mason-lspconfig").setup({
