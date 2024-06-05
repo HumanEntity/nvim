@@ -34,7 +34,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set("n", "<C-f>", ":!tmux neww tmux-sessionizer.sh<CR>")
+-- vim.keymap.set("n", "<C-f>", ":!tmux neww tmux-sessionizer.sh<CR>")
 
 map("n", "<left>", "<Nop>")
 map("n", "<down>", "<Nop>")
