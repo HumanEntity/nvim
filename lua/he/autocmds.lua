@@ -106,6 +106,8 @@ autocmd({ "LspAttach" }, {
 		vim.keymap.set("i", "<C-h>", function()
 			vim.lsp.buf.signature_help()
 		end, { desc = "Signature help" })
+
+		vim.lsp.inlay_hint.enable()
 	end,
 })
 
