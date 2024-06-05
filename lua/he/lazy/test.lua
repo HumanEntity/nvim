@@ -11,6 +11,7 @@ return {
 		config = function()
 			require("neotest-rust")
 		end,
+		cond = false,
 	},
 	-- {
 	-- 	"vim-test/vim-test",
