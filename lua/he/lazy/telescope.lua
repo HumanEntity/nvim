@@ -5,9 +5,12 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"natecraddock/telescope-zf-native.nvim",
+		"nvim-telescope/telescope-file-browser.nvim",
 	},
 	config = function()
 		local actions = require("telescope.actions")
+		local fb_actions = require("telescope").extensions.file_browser.actions
+
 		require("telescope").setup({
 			defaults = {
 				mappings = {
@@ -17,8 +20,22 @@ return {
 					},
 				},
 			},
+			extensions = {
+				file_browser = {
+					theme = "ivy",
+					-- disables netrw and use telescope-file-browser in its place
+					hijack_netrw = true,
+					mappings = {
+						["n"] = {
+							["%"] = fb_actions.create,
+							["h"] = fb_actions.goto_parent_dir,
+						},
+					},
+				},
+			},
 		})
 		require("telescope").load_extension("zf-native")
+		require("telescope").load_extension("file_browser")
 
 		local map = require("he.utils").map
 		local builtin = require("telescope.builtin")
