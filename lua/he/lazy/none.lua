@@ -1,7 +1,6 @@
 return {
 	{
 		"nvimtools/none-ls.nvim",
-		ft = { "go", "rust", "lua", "python", "c", "cpp" },
 		config = function()
 			local null_ls = require("null-ls")
 			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -17,6 +16,9 @@ return {
 					null_ls.builtins.code_actions.gitsigns,
 					null_ls.builtins.diagnostics.mypy,
 					null_ls.builtins.formatting.black,
+					null_ls.builtins.formatting.prettier.with({
+						extra_filetypes = { "javascriptreact", "typescriptreact", "astro" },
+					}),
 					-- null_ls.builtins.formatting.latexindent,
 					null_ls.builtins.formatting.clang_format,
 				},
