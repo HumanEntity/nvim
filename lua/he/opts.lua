@@ -21,7 +21,7 @@ vim.opt.splitbelow = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 
 -- vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -47,15 +47,9 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.timeoutlen = 300
 
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 
 vim.opt.background = "dark"
-
-vim.opt.list = true
-vim.opt.listchars = {
-	tab = "> ",
-	-- eol = "~",
-}
 
 -- VimTex
 vim.g.vimtex_view_method = "zathura"
@@ -71,3 +65,10 @@ vim.g.netrw_list_hide = "(^|ss)\zs.S+"
 vim.g.netrw_localcopydircmd = "cp -r"
 
 vim.cmd("hi! link netrwMarkFile Search")
+
+vim.opt.mouse = ""
+
+vim.opt.path:append({ "**" })
+vim.opt.formatoptions:append({ "r" })
+
+vim.opt.laststatus = 2
