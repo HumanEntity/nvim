@@ -4,7 +4,7 @@ return {
 	-- or                              , branch = '0.1.1',
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"natecraddock/telescope-zf-native.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-telescope/telescope-file-browser.nvim",
 	},
 	config = function()
@@ -34,7 +34,7 @@ return {
 				},
 			},
 		})
-		require("telescope").load_extension("zf-native")
+		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("file_browser")
 
 		local map = require("he.utils").map
