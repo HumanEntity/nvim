@@ -1,10 +1,12 @@
 local map = function(mode, lhs, rhs, opts)
-	require("he.utils").map(mode, lhs, rhs, opts, { silent = true })
+  require("he.utils").map(mode, lhs, rhs, opts, { silent = true })
 end
 
 map("n", "<ESC>", function()
-	vim.cmd("noh")
+  vim.cmd("noh")
 end)
+
+local opts = { noremap = true, silent = true }
 
 -- map("n", "<left>", ":bprevious", { desc = "Previous buffer" })
 -- map("n", "<right>", ":bnext", { desc = "Next buffer" })
@@ -47,11 +49,16 @@ map("i", "<right>", "<Nop>")
 map("i", "<up>", "<Nop>")
 
 -- Quickfix
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 
 -- Code Folding
 map("n", "<TAB>", "za")
+
+map("n", "te", "tabedit")
+vim.keymap.set("n", "te", ":tabedit ")
+vim.keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+vim.keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 
 -- ---------------------------------
 --           -- Notes --
@@ -64,16 +71,16 @@ map("n", "<TAB>", "za")
 
 local rust_group = vim.api.nvim_create_augroup("rust", { clear = true })
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-	pattern = "*.rs",
-	group = rust_group,
-	callback = function()
-		map("n", "<leader>ab", function()
-			vim.cmd("Cargo build")
-		end, { desc = "Cargo build" })
-		map("n", "<leader>ac", function()
-			vim.cmd("Cargo check")
-		end, { desc = "Cargo check" })
-	end,
+  pattern = "*.rs",
+  group = rust_group,
+  callback = function()
+    map("n", "<leader>ab", function()
+      vim.cmd("Cargo build")
+    end, { desc = "Cargo build" })
+    map("n", "<leader>ac", function()
+      vim.cmd("Cargo check")
+    end, { desc = "Cargo check" })
+  end,
 })
 
 -- ---------------------------------
@@ -82,16 +89,16 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 
 local md_group = vim.api.nvim_create_augroup("md", { clear = true })
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-	pattern = { "*.md", "*.markdown" },
-	group = md_group,
-	callback = function()
-		map("n", "<leader>ap", function()
-			vim.cmd("MarkdownPreviewToggle")
-		end, { desc = "Toggle Markdown Preview" })
-		-- vim.cmd.TableModeEnable()
-		-- vim.opt.number = false
-		-- vim.opt.relativenumber = false
-	end,
+  pattern = { "*.md", "*.markdown" },
+  group = md_group,
+  callback = function()
+    map("n", "<leader>ap", function()
+      vim.cmd("MarkdownPreviewToggle")
+    end, { desc = "Toggle Markdown Preview" })
+    -- vim.cmd.TableModeEnable()
+    -- vim.opt.number = false
+    -- vim.opt.relativenumber = false
+  end,
 })
 -- vim.api.nvim_create_autocmd("BufLeave", {
 -- 	pattern = { "*.md", "*.markdown" },
