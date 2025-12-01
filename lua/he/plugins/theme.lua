@@ -6,6 +6,7 @@ local function ColorMyPencils(theme)
 
     local toclear = {
         "Normal",
+        "NormalNC",
         "NormalFloat",
         "DiagnosticVirtualTextHint",
         "DiagnosticVirtualTextOk",
@@ -25,6 +26,8 @@ local function ColorMyPencils(theme)
         "VertSplit",
     }
 
+    vim.api.nvim_set_hl(0, "CursorLineNr", { italic = true, bold = true })
+
     utils:clear_group(toclear)
 end
 
@@ -36,7 +39,7 @@ return {
         priority = 1000,
         lazy = false,
         opts = {
-            transparent = true,
+            transparent = false,
         },
         config = function(_, opts)
             require("solarized-osaka").setup(opts)
@@ -62,7 +65,8 @@ return {
         end,
     },
     {
-        "ellisonleao/gruvbox.nvim",
+        dir = "~/personal/plugins/gruvbox.nvim",
+        -- "ellisonleao/gruvbox.nvim",
         lazy = false,
         priority = 1000,
         opts = {
@@ -95,42 +99,6 @@ return {
             -- ColorMyPencils("gruvbox")
         end,
     },
-
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        lazy = false,
-        config = function()
-            require("rose-pine").setup({
-                disable_background = true,
-                styles = {
-                    italic = false,
-                },
-            })
-
-            -- ColorMyPencils()
-        end,
-    },
-    {
-        "tjdevries/colorbuddy.nvim",
-        -- lazy = false,
-        config = function()
-            -- ColorMyPencils("gruvbuddy")
-        end,
-    },
-
-    {
-        "EdenEast/nightfox.nvim",
-        -- lazy = false,
-        config = function()
-            require("nightfox").setup({
-                options = {
-                    transparent = true,
-                },
-            })
-            -- ColorMyPencils("nightfox")
-        end,
-    },
     {
         "Shatur/neovim-ayu",
         lazy = false,
@@ -159,8 +127,13 @@ return {
     {
         "navarasu/onedark.nvim",
         opts = {
-            -- style = "darker",
-            transparent = false,
+            style = "warmer",
+            transparent = true,
+            diagnostics = {
+                darker = true, -- darker colors for diagnostic
+                undercurl = true, -- use undercurl instead of underline for diagnostics
+                background = true, -- use background color for virtual text
+            },
         },
         lazy = false,
     },
@@ -196,4 +169,45 @@ return {
     },
     { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
     { "marko-cerovac/material.nvim" },
+    {
+        "cpea2506/one_monokai.nvim",
+        config = function()
+            require("one_monokai").setup({
+                transparent = true,
+                highlights = function(colors)
+                    return {
+                        Constant = { fg = colors.cyan },
+                        ["@module"] = { fg = colors.aqua },
+
+                        ["@type.builtin"] = { link = "@type" },
+
+                        Operator = { fg = colors.purple },
+                        Delimiter = { link = "Normal" },
+
+                        GitSignsAdd = { fg = colors.green },
+                        GitSignsChange = { fg = colors.yellow },
+                        GitSignsDelete = { fg = colors.dark_red },
+                        GitSignsText = { fg = colors.blue },
+                    }
+                end,
+            })
+        end,
+    },
+    -- {
+    --     "ange-yaghi/onedark.vim",
+    -- },
+    {
+        "Mofiqul/dracula.nvim",
+    },
+
+    -- { "wincent/base16-nvim" },
+    {
+        "tinted-theming/tinted-vim",
+        config = function()
+            -- Disable the bold
+            vim.g.tinted_bold = 0
+        end,
+    },
+    { "srcery-colors/srcery-vim", name = "srcery" },
+    -- { "nuvic/flexoki-nvim", name = "flexoki" },
 }
