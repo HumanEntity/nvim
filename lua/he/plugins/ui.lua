@@ -24,25 +24,6 @@ return {
             })
         end,
     },
-    -- {
-    --     "akinsho/bufferline.nvim",
-    --     event = "VeryLazy",
-    --     keys = {
-    --         { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-    --         { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
-    --     },
-    --     opts = {
-    --         options = {
-    --             mode = "tabs",
-    --             show_buffer_close_icons = false,
-    --             show_close_icon = false,
-    --         },
-    --     },
-    --     config = function(_, opts)
-    --         require("bufferline").setup(opts)
-    --         vim.opt.showtabline = 1
-    --     end,
-    -- },
     {
         "nvim-lualine/lualine.nvim",
         event = "VeryLazy",
