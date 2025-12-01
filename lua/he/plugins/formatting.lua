@@ -8,13 +8,19 @@ return {
                 zig = { "zigfmt" },
                 c = { "clang-format" },
                 cpp = { "clang-format" },
-                markdown = { "markdownfmt" },
+                arduino = { "clang-format" },
+                -- markdown = { "markdownfmt" },
+                markdown = { "mdformat" },
+                ocaml = { "ocamlformat" },
+                haskell = { "ormolu" },
+                html = { "superhtml" },
             },
             formatters = {
                 ["clang-format"] = {
                     prepend_args = { "-style=file" },
                 },
             },
+            lsp_format = "never",
         },
         config = function(_, opts)
             require("conform").setup(opts)
@@ -125,4 +131,8 @@ return {
     --     })
     --   end,
     -- }
+    {
+        "dhruvasagar/vim-table-mode",
+        lazy = false,
+    },
 }
