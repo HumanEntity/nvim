@@ -20,7 +20,7 @@ return {
             local r = ls.restore_node
             local fmt = require("luasnip.extras.fmt").fmt
 
-            local reg_languages = { "c", "cpp", "rust", "arduino" }
+            local reg_languages = { "c", "cpp", "rust", "arduino", "zig" }
 
             for _, lang in pairs(reg_languages) do
                 ls.add_snippets(lang, {
@@ -28,6 +28,52 @@ return {
                         t({ "//////////////////////////////", "/// REG" }),
                         t(": "),
                         i(0),
+                    }),
+                })
+                ls.add_snippets(lang, {
+                    s("header", {
+                        t({
+                            "/*",
+                            "====================",
+                            "",
+                            "",
+                        }),
+                        i(0), -- "FunctionName"
+                        t({
+                            "",
+                            "",
+                            "Description",
+                            "",
+                            "====================",
+                            "*/",
+                        }),
+                    }),
+                })
+                ls.add_snippets(lang, {
+                    s("incguard", {
+                        t("#ifndef "),
+                        i(1),
+                        t({ "", "" }),
+                        t("#define "),
+                        d(2, function(args)
+                            -- the returned snippetNode doesn't need a position; it's inserted
+                            -- "inside" the dynamicNode.
+                            return sn(nil, {
+                                -- jump-indices are local to each snippetNode, so restart at 1.
+                                t(args[1]),
+                            })
+                        end, { 1 }),
+                        t({ "", "", "", "" }),
+                        t("#endif /* "),
+                        d(3, function(args)
+                            -- the returned snippetNode doesn't need a position; it's inserted
+                            -- "inside" the dynamicNode.
+                            return sn(nil, {
+                                -- jump-indices are local to each snippetNode, so restart at 1.
+                                t(args[1]),
+                            })
+                        end, { 1 }),
+                        t(" */"),
                     }),
                 })
             end
