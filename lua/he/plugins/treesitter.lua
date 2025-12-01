@@ -6,11 +6,12 @@ return {
                 ensure_installed = {
                     "rust",
                     "zig",
+                    "ocaml",
                     "c",
                     "vim",
                     "vimdoc",
                     "markdown",
-                    "org",
+                    -- "org",
                     "astro",
                     "tsx",
                     "typescript",
