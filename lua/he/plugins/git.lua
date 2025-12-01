@@ -75,22 +75,6 @@ return {
     --   opts = {},
     -- },
     {
-        "NeogitOrg/neogit",
-        lazy = false,
-        enabled = false,
-        dependencies = {
-            "nvim-lua/plenary.nvim", -- required
-            "sindrets/diffview.nvim", -- optional - Diff integration
-
-            -- Only one of these is needed.
-            "nvim-telescope/telescope.nvim", -- optional
-        },
-        opts = {
-            kind = "split_below",
-        },
-        config = true,
-    },
-    {
         "ThePrimeagen/git-worktree.nvim",
         dependencies = { "nvim-telescope/telescope.nvim" },
         config = function()
