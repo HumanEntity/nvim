@@ -1,0 +1,28 @@
+vim.loader.enable()
+require("he.opts")
+require("he.custom.focus")
+require("he.custom.presentation"):setup({ key = "<leader>;p" })
+require("he.custom.godot")
+require("he.lazy")
+-- vim.g.setup_colors("lackluster-hack")
+-- vim.g.setup_colors("gruvbox")
+-- vim.cmd.colorscheme("base16-classic-dark")
+-- vim.g.setup_colors("solarized-osaka")
+-- vim.cmd.colorscheme("solarized-osaka")
+-- vim.g.setup_colors("material")
+-- vim.cmd.colorscheme([[rose-pine-moon]])
+-- vim.cmd.colorscheme([[vague]])
+-- vim.g.setup_colors([[one_monokai]])
+-- vim.g.setup_colors([[dracula]])
+-- vim.g.setup_colors([[kanagawa]])
+-- vim.g.setup_colors([[flexoki-moon]])
+-- vim.cmd.colorscheme("mine")
+-- vim.cmd.colorscheme("moonfly")
+vim.cmd.colorscheme("srcery")
+require("he.autocmds")
+require("he.commands")
+require("he.mappings")
+
+-- disable annoying deprecation messages
+---@diagnostic disable-next-line: duplicate-set-field
+vim.deprecate = function() end
