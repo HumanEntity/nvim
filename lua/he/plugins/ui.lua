@@ -1,6 +1,6 @@
 return {
     {
-        "echasnovski/mini.hipatterns",
+        "nvim-mini/mini.nvim",
         event = "BufReadPre",
         config = function()
             local hi = require("mini.hipatterns")
@@ -78,6 +78,13 @@ return {
                         { require("he.utils.lualine").pretty_path() },
                         function()
                             return vim.fn["nvim_treesitter#statusline"](50)
+                        end,
+                        function()
+                            local reg = vim.fn.reg_recording()
+                            if reg == "" then
+                                return ""
+                            end -- not recording
+                            return "recording to " .. reg
                         end,
                     },
                     lualine_x = {
@@ -162,10 +169,5 @@ return {
                 end,
             },
         },
-    },
-    {
-        "stevearc/dressing.nvim",
-        event = "VeryLazy",
-        opts = {},
     },
 }
