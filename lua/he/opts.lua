@@ -8,7 +8,7 @@ set spell spelllang=en_us
 ]])
 vim.g.git_messenger_no_default_mappings = true
 
-vim.wo.foldlevel = 5
+vim.wo.foldlevel = 20
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
@@ -41,6 +41,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
@@ -61,6 +62,7 @@ vim.g.netrw_winsize = 30
 vim.g.netrw_banner = 0
 
 vim.g.netrw_list_hide = "(^|ss)\zs.S+"
+vim.g.netrw_liststyle = 0
 
 vim.g.netrw_localcopydircmd = "cp -r"
 
@@ -72,3 +74,13 @@ vim.opt.path:append({ "**" })
 vim.opt.formatoptions:append({ "r" })
 
 vim.opt.laststatus = 2
+
+vim.opt.colorcolumn = "80"
+
+vim.opt.pumblend = 15
+
+-- Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
+vim.opt.cursorline = true
