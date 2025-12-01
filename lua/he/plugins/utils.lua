@@ -14,6 +14,7 @@ return {
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
+        event = "VeryLazy",
         opts = {
             gui_style = {
                 fg = "NONE", -- The gui style to use for the fg highlight group.
