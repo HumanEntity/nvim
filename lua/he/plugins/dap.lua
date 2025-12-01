@@ -5,12 +5,10 @@ return {
             "rcarriga/nvim-dap-ui",
             "theHamsta/nvim-dap-virtual-text",
             "nvim-neotest/nvim-nio",
+
+            "williamboman/mason.nvim",
         },
         config = function()
-            require("dapui").setup()
-
-            require("gopher.dap").setup()
-
             local M = {}
 
             local dap, dapui, dapvt = require("dap"), require("dapui"), require("nvim-dap-virtual-text")
@@ -30,42 +28,38 @@ return {
                 dapui.close()
             end
 
-            M.keymaps = {
-                { "n", "<leader>dt", ":DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint" } },
-                { "n", "<leader>dx", ":DapTerminate<CR>", { desc = "Terminate" } },
-                { "n", "<leader>dn", ":DapStepOver<CR>", { desc = "Step over" } },
-                { "n", "<leader>di", ":DapStepInto<CR>", { desc = "Step into" } },
-                { "n", "<leader>do", ":DapStepOut<CR>", { desc = "Step out" } },
-                { "n", "<leader>dc", ":DapContinue<CR>", { desc = "Start/Continue" } },
-                {
-                    "n",
-                    "<leader>dr",
-                    function()
-                        require("dapui").open({ reset = true })
-                    end,
-                    { desc = "Reopen windows" },
+            dapui.setup({
+                expand_lines = true,
+                controls = { enabled = false },
+                floating = { border = "rounded" },
+                render = {
+                    max_type_length = 60,
+                    max_value_lines = 200,
                 },
-            }
-
-            for _, v in pairs(M.keymaps) do
-                local opts = v[4] or {}
-                opts.silent = true
-                vim.keymap.set(v[1], v[2], v[3], opts)
-            end
+                layouts = {
+                    {
+                        elements = {
+                            { id = "scopes", size = 1.0 },
+                        },
+                        size = 15,
+                        position = "bottom",
+                    },
+                },
+            })
 
             vim.keymap.set("n", "<leader>dt", ":DapToggleBreakpoint<CR>")
             vim.keymap.set("n", "<leader>dx", ":DapTerminate<CR>")
-            vim.keymap.set("n", "<leader>do", ":DapStepOver<CR>")
+            vim.keymap.set("n", "<leader>ds", ":DapStepOver<CR>")
 
             local mason_registry = require("mason-registry")
 
-            local codelldb = mason_registry.get_package("codelldb")
-            local codelldb_exe = codelldb:get_install_path() .. "/codelldb"
+            -- local codelldb = mason_registry.get_package("codelldb")
+            -- local codelldb_exe = codelldb:get_install_path() .. "/codelldb"
             dap.adapters.codelldb = {
                 type = "server",
                 port = "${port}",
                 executable = {
-                    command = codelldb_exe,
+                    command = "codelldb",
                     args = { "--port", "${port}" },
                 },
             }
@@ -80,7 +74,6 @@ return {
                     end,
                     cwd = "${workspaceFolder}",
                     stopOnEntry = false,
-                    args = {},
 
                     -- 💀
                     -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
@@ -103,7 +96,6 @@ return {
 
             return M
         end,
-        ft = { "rust", "go", "odin" },
-        enabled = false,
+        ft = { "rust", "odin", "c" },
     },
 }
