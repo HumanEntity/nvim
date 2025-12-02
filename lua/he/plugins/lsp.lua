@@ -97,92 +97,7 @@ return {
                     "clangd",
                     -- "harper_ls",
                 },
-                -- handlers = {
-                --     -- function(server_name) -- default handler (optional)
-                --     --     print("Default handler for " .. server_name)
-                --     --     require("lspconfig")[server_name].setup({
-                --     --         capabilities = capabilities,
-                --     --         on_attach = on_attach,
-                --     --     })
-                --     -- end,
-                --     -- ["zls"] = function()
-                --     --   local lspconfig = require("lspconfig")
-                --     -- end,
-                --     -- ["rust_analyzer"] = function()
-                --     --     local lspconfig = require("lspconfig")
-                --     --     lspconfig.rust_analyzer.setup({
-                --     --         capabilities = capabilities,
-                --     --         on_attach = on_attach,
-                --     --         settings = {
-                --     --             ["rust-analyzer"] = {
-                --     --                 checkOnSave = {
-                --     --                     command = "clippy",
-                --     --                 },
-                --     --             },
-                --     --         },
-                --     --     })
-                --     -- end,
-                --     ["lua_ls"] = function()
-                --         local lspconfig = require("lspconfig")
-                --         lspconfig.lua_ls.setup({
-                --             capabilities = capabilities,
-                --             on_attach = on_attach,
-                --             settings = {
-                --                 Lua = {
-                --                     diagnostics = {
-                --                         globals = { "vim", "it", "describe", "before_each", "after_each" },
-                --                     },
-                --                     workspace = {
-                --                         checkThirdParty = false,
-                --                         telemetry = { enable = false },
-                --                         library = {
-                --                             "${3rd}/love2d/library",
-                --                         },
-                --                     },
-                --                 },
-                --             },
-                --         })
-                --     end,
-                --     ["arduino_language_server"] = function()
-                --         local lspconfig = require("lspconfig")
-                --
-                --         local mason_registry = require("mason-registry")
-                --
-                --         local clangd = mason_registry.get_package("clangd")
-                --         local clangd_exe = clangd:get_install_path() .. "/clangd_18.1.3/bin/clangd"
-                --
-                --         lspconfig.arduino_language_server.setup({
-                --             -- capabilities = capabilities,
-                --             on_attach = on_attach,
-                --             cmd = {
-                --                 "arduino-language-server",
-                --                 "-cli-config",
-                --                 "/Users/tomek/Library/Arduino15/arduino-cli.yaml",
-                --                 -- "-fqbn",
-                --                 -- "esp32:esp32:esp32s2",
-                --                 "-clangd",
-                --                 clangd_exe,
-                --             },
-                --         })
-                --     end,
-                --     ["clangd"] = function()
-                --         local lspconfig = require("lspconfig")
-                --         -- Setup commented out due to tests with ccls (Performed)
-                --
-                --         lspconfig.clangd.setup({
-                --             on_attach = on_attach,
-                --             capabilities = capabilities,
-                --             cmd = {
-                --                 "clangd",
-                --                 "--header-insertion=never",
-                --             },
-                --         })
-                --     end,
-                -- },
             })
-            -- require("lspconfig").ols.setup({
-            --     cmd = { os.getenv("HOME") .. "/code/tools/ols/ols" },
-            -- })
             vim.lsp.config("ols", {
                 cmd = { os.getenv("HOME") .. "/code/tools/ols/ols" },
                 filetypes = "odin",
@@ -192,20 +107,6 @@ return {
                 capabilities = capabilities,
             })
             vim.lsp.enable("lua_ls")
-            -- require("lspconfig").hls.setup({
-            --     on_attach = on_attach,
-            --     capabilities = capabilities,
-            -- })
-            -- require("lspconfig").ocamllsp.setup({
-            --     on_attach = on_attach,
-            --     capabilities = capabilities,
-            --
-            --     settings = {
-            --         codelens = { enable = true },
-            --         inlayHints = { enable = true },
-            --         syntaxDocumentation = { enable = true },
-            --     },
-            -- })
             vim.lsp.config("ocamllsp", {
                 on_attach = on_attach,
                 capabilities = capabilities,
@@ -218,30 +119,11 @@ return {
             })
             vim.lsp.enable("ocamllsp")
 
-            -- require("lspconfig").clangd.setup({
-            --     on_attach = on_attach,
-            --     capabilities = capabilities,
-            --     cmd = {
-            --         "clangd",
-            --         "--header-insertion=never",
-            --     },
-            -- })
             vim.lsp.config("clangd", {
                 cmd = { "clangd", "--header-insertion=never" },
             })
             vim.lsp.enable("clangd")
 
-            -- require("lspconfig").rust_analyzer.setup({
-            --     capabilities = capabilities,
-            --     on_attach = on_attach,
-            --     settings = {
-            --         ["rust-analyzer"] = {
-            --             checkOnSave = {
-            --                 command = "clippy",
-            --             },
-            --         },
-            --     },
-            -- })
             vim.lsp.config("rust_analyzer", {
                 capabilities = capabilities,
                 on_attach = on_attach,
@@ -256,41 +138,6 @@ return {
             })
             vim.lsp.enable("rust_analyzer")
 
-            -- require("lspconfig").superhtml.setup({})
-            -- do
-            --     local lspconfig = require("lspconfig")
-            --
-            --     local mason_registry = require("mason-registry")
-            --
-            --     local clangd = mason_registry.get_package("clangd")
-            --     local clangd_exe = clangd:get_install_path() .. "/clangd_18.1.3/bin/clangd"
-            --
-            --     lspconfig.arduino_language_server.setup({
-            --         -- capabilities = capabilities,
-            --         on_attach = on_attach,
-            --         cmd = {
-            --             "arduino-language-server",
-            --             "-cli-config",
-            --             "/Users/tomek/Library/Arduino15/arduino-cli.yaml",
-            --             -- "-fqbn",
-            --             -- "esp32:esp32:esp32s2",
-            --             "-clangd",
-            --             clangd_exe,
-            --         },
-            --     })
-            -- end
-
-            -- require("lspconfig").zls.setup({
-            --     root_dir = require("lspconfig").util.root_pattern(".git", "build.zig", "zls.json"),
-            --     settings = {
-            --         zls = {
-            --             enable_inlay_hints = true,
-            --             enable_snippets = true,
-            --             warn_style = true,
-            --         },
-            --     },
-            --     -- filetypes = { "zig", "zir", "c", "cpp" },
-            -- })
             vim.lsp.config("zls", {
                 root_dir = require("lspconfig").util.root_pattern(".git", "build.zig", "zls.json"),
                 settings = {
@@ -305,13 +152,6 @@ return {
             vim.lsp.enable("zls")
             vim.g.zig_fmt_parse_errors = 0
             vim.g.zig_fmt_autosave = 1
-            -- require("lspconfig").ccls.setup({
-            --   init_options = {
-            --     cache = {
-            --       directory = ".ccls-cache",
-            --     },
-            --   },
-            -- })
 
             require("nvim-autopairs").setup({})
 
