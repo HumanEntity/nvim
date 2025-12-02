@@ -1,34 +1,4 @@
 return {
-    -- {
-    --     "lewis6991/gitsigns.nvim",
-    --     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    --     config = function()
-    --         local gitsigns = require("gitsigns")
-    --
-    --         gitsigns.setup({
-    --             signs = {},
-    --             signcolumn = false, -- Toggle with `:Gitsigns toggle_signs`
-    --             numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
-    --             linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-    --             word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-    --             current_line_blame = true,
-    --             current_line_blame_opts = {
-    --                 virt_text = true,
-    --                 virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-    --                 delay = 1000,
-    --                 ignore_whitespace = false,
-    --             },
-    --             -- current_line_blame_formatter_opts = {
-    --             -- 	relative_time = false,
-    --             -- },
-    --         })
-    --
-    --         vim.keymap.set("n", "<C-s>h", gitsigns.stage_hunk)
-    --         vim.keymap.set("n", "<C-s>b", gitsigns.stage_buffer)
-    --         vim.keymap.set("n", "]h", gitsigns.next_hunk)
-    --         vim.keymap.set("n", "[h", gitsigns.prev_hunk)
-    --     end,
-    -- },
     {
         "tpope/vim-fugitive",
         --    enabled = false,     -- Developing custom plugin for that
