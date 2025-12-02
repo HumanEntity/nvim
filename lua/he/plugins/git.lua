@@ -69,14 +69,4 @@ return {
             })
         end,
     },
-    -- {
-    --   dir = "~/personal/plugins/git.nvim/",
-    --   lazy = false,
-    --   opts = {},
-    -- },
-    {
-        dir = "~/personal/plugins/jj/",
-        opts = {},
-        lazy = false,
-    },
 }
