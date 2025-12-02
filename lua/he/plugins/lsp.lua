@@ -4,7 +4,6 @@ return {
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
         dependencies = {
             "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
             "L3MON4D3/LuaSnip",
             "j-hui/fidget.nvim",
             -- "hrsh7th/cmp-nvim-lsp",
@@ -87,17 +86,6 @@ return {
 
             require("fidget").setup({})
             require("mason").setup()
-            require("mason-lspconfig").setup({
-                automatic_enable = false,
-                ensure_installed = {
-                    "lua_ls",
-                    -- "rust_analyzer",
-                    "taplo",
-                    -- "zls",
-                    "clangd",
-                    -- "harper_ls",
-                },
-            })
             vim.lsp.config("ols", {
                 cmd = { os.getenv("HOME") .. "/code/tools/ols/ols" },
                 filetypes = "odin",
