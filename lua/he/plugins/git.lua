@@ -30,11 +30,21 @@ return {
                         vim.cmd.Git({ "commit" })
                     end, opts)
 
+                    vim.keymap.set("n", "<leader>ff", function()
+                        vim.cmd.Git({ "fetch" })
+                    end, opts)
+                    vim.keymap.set("n", "<leader>mm", function()
+                        vim.cmd.Git({ "merge" })
+                    end, opts)
+                    vim.keymap.set("n", "<leader>rr", function()
+                        vim.cmd.Git({ "rebase" })
+                    end, opts)
+
                     vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
 
-                    -- vim.keymap.set("n", "q", function()
-                    --     vim.cmd("q")
-                    -- end, opts)
+                    vim.keymap.set("n", "q", function()
+                        vim.cmd("bdelete")
+                    end, opts)
                 end,
             })
         end,
