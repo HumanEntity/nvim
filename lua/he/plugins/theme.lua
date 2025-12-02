@@ -99,22 +99,6 @@ return {
             -- ColorMyPencils("gruvbox")
         end,
     },
-    {
-        "Shatur/neovim-ayu",
-        lazy = false,
-        config = function()
-            require("ayu").setup({
-                mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
-                terminal = true, -- Set to `false` to let terminal manage its own colors.
-                overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
-            })
-            -- ColorMyPencils("ayu")
-        end,
-    },
-    {
-        "drewtempelmeyer/palenight.vim",
-        lazy = false,
-    },
     -- {
     --   "olimorris/onedarkpro.nvim",
     --   priority = 1000, -- Ensure it loads first
@@ -124,19 +108,6 @@ return {
     --     }
     --   }
     -- }
-    {
-        "navarasu/onedark.nvim",
-        opts = {
-            style = "warmer",
-            transparent = true,
-            diagnostics = {
-                darker = true, -- darker colors for diagnostic
-                undercurl = true, -- use undercurl instead of underline for diagnostics
-                background = true, -- use background color for virtual text
-            },
-        },
-        lazy = false,
-    },
     {
         "rebelot/kanagawa.nvim",
         lazy = false,
@@ -167,8 +138,6 @@ return {
             -- vim.cmd([[colorscheme kanagawa]])
         end,
     },
-    { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
-    { "marko-cerovac/material.nvim" },
     {
         "cpea2506/one_monokai.nvim",
         config = function()
@@ -193,14 +162,6 @@ return {
             })
         end,
     },
-    -- {
-    --     "ange-yaghi/onedark.vim",
-    -- },
-    {
-        "Mofiqul/dracula.nvim",
-    },
-
-    -- { "wincent/base16-nvim" },
     {
         "tinted-theming/tinted-vim",
         config = function()
@@ -209,5 +170,4 @@ return {
         end,
     },
     { "srcery-colors/srcery-vim", name = "srcery" },
-    -- { "nuvic/flexoki-nvim", name = "flexoki" },
 }
