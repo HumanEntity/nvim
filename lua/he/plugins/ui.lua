@@ -30,6 +30,7 @@ return {
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
+        enabled = false,
         opts = function()
             return {
                 options = {
@@ -150,6 +151,7 @@ return {
                 end,
             },
         },
+        enabled = false,
     },
     {
         "b0o/incline.nvim",
