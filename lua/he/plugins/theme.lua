@@ -48,23 +48,6 @@ return {
         end,
     },
     {
-        "slugbyte/lackluster.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {
-            tweak_background = {
-                normal = "none", -- main background
-                telescope = "none", -- telescope
-                menu = "none", -- nvim_cmp, wildmenu ... (bad idea to transparent)
-                popup = "none", -- lazy, mason, whichkey ... (bad idea to transparent)
-            },
-        },
-        config = function(_, opts)
-            require("lackluster").setup(opts)
-            -- ColorMyPencils("lackluster")
-        end,
-    },
-    {
         dir = "~/personal/plugins/gruvbox.nvim",
         -- "ellisonleao/gruvbox.nvim",
         lazy = false,
@@ -99,15 +82,6 @@ return {
             -- ColorMyPencils("gruvbox")
         end,
     },
-    -- {
-    --   "olimorris/onedarkpro.nvim",
-    --   priority = 1000, -- Ensure it loads first
-    --   opts = {
-    --     options = {
-    --       transparency = false,
-    --     }
-    --   }
-    -- }
     {
         "rebelot/kanagawa.nvim",
         lazy = false,
@@ -136,30 +110,6 @@ return {
         config = function(_, opts)
             require("kanagawa").setup(opts)
             -- vim.cmd([[colorscheme kanagawa]])
-        end,
-    },
-    {
-        "cpea2506/one_monokai.nvim",
-        config = function()
-            require("one_monokai").setup({
-                transparent = true,
-                highlights = function(colors)
-                    return {
-                        Constant = { fg = colors.cyan },
-                        ["@module"] = { fg = colors.aqua },
-
-                        ["@type.builtin"] = { link = "@type" },
-
-                        Operator = { fg = colors.purple },
-                        Delimiter = { link = "Normal" },
-
-                        GitSignsAdd = { fg = colors.green },
-                        GitSignsChange = { fg = colors.yellow },
-                        GitSignsDelete = { fg = colors.dark_red },
-                        GitSignsText = { fg = colors.blue },
-                    }
-                end,
-            })
         end,
     },
     {
