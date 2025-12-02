@@ -66,6 +66,10 @@ local filename = function()
         return ""
     end
 
+    if vim.bo.modified == true then
+        fname = "%#MatchParen#" .. fname .. "%#Statusline#"
+    end
+
     return fname .. " "
 end
 
