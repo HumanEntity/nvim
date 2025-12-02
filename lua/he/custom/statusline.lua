@@ -81,8 +81,14 @@ local lineinfo = function()
     return " %P %l:%c "
 end
 
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter", "FocusGained" }, {
+    callback = function()
+        vim.b.branch_name = vim.fn.system("git branch --show-current 2> /dev/null | tr -d '\n'")
+    end,
+})
+
 local branch_name = function()
-    local branch = vim.fn.system("git branch --show-current 2> /dev/null | tr -d '\n'")
+    local branch = vim.b.branch_name
     if branch ~= "" then
         return " " .. branch
     else
