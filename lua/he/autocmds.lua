@@ -54,9 +54,12 @@ autocmd("TextYankPost", {
 -- })
 
 autocmd({ "BufEnter", "BufWinEnter" }, {
-    pattern = "netrw",
+    pattern = "*",
     group = HeGroup,
     callback = function()
+        if vim.bo.filetype ~= "netrw" then
+            return
+        end
         local keymap = vim.keymap.set
         keymap("n", ".", "gh", { buffer = true })
 
@@ -70,6 +73,7 @@ autocmd({ "BufEnter", "BufWinEnter" }, {
         keymap("n", "fx", "mm", { buffer = true })
         keymap("n", "fX", "mtmm", { buffer = true })
         keymap("n", "f;", "mx", { buffer = true })
+        keymap("n", "<leader>q", ":bdelete<CR>", { buffer = true })
     end,
 })
 
