@@ -53,6 +53,8 @@ map("i", "<down>", "<Nop>")
 map("i", "<right>", "<Nop>")
 map("i", "<up>", "<Nop>")
 
+map("n", "<leader>e", ":e .<CR>")
+
 -- Quickfix
 -- vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 -- vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
